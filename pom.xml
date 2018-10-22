@@ -31,6 +31,7 @@
     <maven.jar.plugin.version>3.1.2</maven.jar.plugin.version>
     <java.version>11</java.version>
     <module.name>com.jpmsworkshop.students.parent</module.name>
+    <java.version>11</java.version>
     <spring-boot.version>2.0.6.RELEASE</spring-boot.version>
   </properties>
 

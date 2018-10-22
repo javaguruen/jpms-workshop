@@ -16,10 +16,8 @@
     <module.name>com.jpmsworkshop.students.parent</module.name>
   </properties>
 
-
   <name>spring-boot jpms workshop - service</name>
   <description>spring-boot jpms workshop - service</description>
-
 
   <dependencies>
     <dependency>
