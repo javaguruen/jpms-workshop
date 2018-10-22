@@ -1,4 +1,4 @@
-package com.jpmsworkshop.students;
+package com.jpmsworkshop.students.api;
 
 public class Student {
 	private Long id;

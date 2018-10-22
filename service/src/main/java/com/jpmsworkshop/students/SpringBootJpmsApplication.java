@@ -1,10 +1,10 @@
 package com.jpmsworkshop.students;
 
-import com.google.common.base.Predicate;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+/*
 import com.google.common.base.Predicates;
 import springfox.documentation.annotations.ApiIgnore;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -16,15 +16,16 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import static com.google.common.base.Predicates.or;
 import static springfox.documentation.builders.PathSelectors.regex;
+ */
 
 @SpringBootApplication
-@EnableSwagger2
+//@EnableSwagger2
 public class SpringBootJpmsApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBootJpmsApplication.class, args);
     }
-
+/*
     @Bean
     public Docket studentsApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -51,4 +52,5 @@ public class SpringBootJpmsApplication {
     private Predicate<String> studentsPaths() {
         return Predicates.or(PathSelectors.regex("/students.*"), PathSelectors.regex("/students"));
     }
+*/
 }

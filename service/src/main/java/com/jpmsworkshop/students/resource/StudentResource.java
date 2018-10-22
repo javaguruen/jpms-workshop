@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.jpmsworkshop.students.Student;
+import com.jpmsworkshop.students.api.Student;
 import com.jpmsworkshop.students.exceptions.StudentNotFoundException;
 import com.jpmsworkshop.students.service.StudentService;
 
