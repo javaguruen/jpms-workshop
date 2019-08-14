@@ -32,38 +32,63 @@ Note that since Java 9, the property has changed name to  `java.version`. So in 
 When migration to later Java versions, make sure all your maven plugins are up-to-date. Java 9, 10 and 11 support are
 typically supported only in later versions of the plugins.
 
+Add the following propertis in the parent pom.
 ```
-  <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
+  <maven.compiler.plugin.version>3.8.!</maven.compiler.plugin.version>
   <maven.surfire.plugin.version>2.22.1</maven.surfire.plugin.version>
 ```
 
-## Add Automatic-Module-Name to Manifest.MF
-To prepare for modules, we start by reserving the module names. This is done by setting `Automatic-Module-Name` in the Manifest.mf file. This is most easily done by configuring hte maven jar plugin.
+In the `pluginManagement` section make sure the correct version of the `compiler-plugin`
+and `surefire-plugin` are used.
 
-All java modules (api and service) need to configure maven jar plugin to add Automatic-Module-Name to the `META-INF/MANIFEST.MF` file in the generated jar files.
+## Add Automatic-Module-Name to Manifest.MF
+To prepare for modules, we start by reserving the module names. This is done by setting `Automatic-Module-Name` in the Manifest.mf file. This is most easily done by configuring the maven jar plugin.
+
+Both java modules (api and service) need to configure maven jar plugin to add Automatic-Module-Name to the `META-INF/MANIFEST.MF` file in the generated jar files.
 In the respective pom files, add the following plugin configuration:
+
+In `pluginManagement` in parent pom, add `jar-plugin` with latest version. Feel free to make a property 
+of the version number.
+ 
+```
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.1.2</version>
+    </plugin>
+```
+
+In the `plugins` section (not `pluginManagement`) in the parent `pom.xml` file,
+jar plugin. 
 ```
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.1.0</version>
                 <configuration>
                     <archive>
                         <manifestEntries>
-                            <Automatic-Module-Name>Your module name</Automatic-Module-Name>
+                            <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
                         </manifestEntries>
                     </archive>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 ```      
+The `jar-plugin` will now run for each modul, including the parent, so all three
+`pom.xml` files needs to have a property named `module.name` to be used by the plugin.
 
-Module names should be `com.jpmsworkshop.students.api` and `com.jpmsworkshop.students.service` for the two maven modules.
+Module names should be `com.jpmsworkshop.students.api` and 
+`com.jpmsworkshop.students.service` for the two maven sub modules. and can be
+`com.jpmsworkshop.students.parent` for the parent pom.
 
+
+Run `mvn clean install`, extract the `META-INF/MANIFEST.MF` file from the resulting
+jar files (in the target folder in the modules) and verify that the property
+`Automatic-Module-Name` is set to your module name.
+ 
 # Modularize the application
 To modularize a maven module, we just add a module descriptor file `module-info.java` in the `src/main/java` folder for that module.
 ```

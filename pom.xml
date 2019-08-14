@@ -26,11 +26,11 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-<!--
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
     <maven.surfire.plugin.version>2.22.1</maven.surfire.plugin.version>
--->
+    <maven.jar.plugin.version>3.1.2</maven.jar.plugin.version>
     <java.version>11</java.version>
+    <module.name>com.jpmsworkshop.students.parent</module.name>
     <spring-boot.version>2.0.6.RELEASE</spring-boot.version>
   </properties>
 
@@ -76,17 +76,35 @@
     </dependencies>
   </dependencyManagement>
   <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifestEntries>
+              <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
     <pluginManagement>
       <plugins>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <!--<version>${maven.compiler.plugin.version}</version>-->
+          <version>${maven.compiler.plugin.version}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-<!--          <version>${maven.surfire.plugin.version}</version>-->
+          <version>${maven.surfire.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${maven.jar.plugin.version}</version>
         </plugin>
       </plugins>
     </pluginManagement>

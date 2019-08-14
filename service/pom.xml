@@ -12,6 +12,10 @@
 
   <artifactId>students-service</artifactId>
   <packaging>jar</packaging>
+  <properties>
+    <module.name>com.jpmsworkshop.students.parent</module.name>
+  </properties>
+
 
   <name>spring-boot jpms workshop - service</name>
   <description>spring-boot jpms workshop - service</description>
@@ -56,19 +60,4 @@
       <version>${project.parent.version}</version>
     </dependency>
   </dependencies>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <configuration>
-          <archive>
-            <manifestEntries>
-              <Automatic-Module-Name>com.java9workshop.students.service</Automatic-Module-Name>
-            </manifestEntries>
-          </archive>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 </project>
