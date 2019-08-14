@@ -8,7 +8,8 @@ module com.jpmsworkshop.students.service {
     requires spring.jdbc;
     requires spring.web;
     requires spring.webmvc;
-    opens com.jpmsworkshop.students.service;
+    //opens com.jpmsworkshop.students.service;
+    opens com.jpmsworkshop.students;
 /*
     requires guava;
     requires springfox.core;
