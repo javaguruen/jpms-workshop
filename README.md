@@ -19,7 +19,7 @@
 Run `java --version` and `mvn --version` to see that your are using the
 right JDK version and mvn is also using JDK 11.
 
-* Verify that it's working fine with java 8:
+* Verify that it's working fine with java 11:
   - run `mvn clean install` from command line
   - run `mvn spring-boot:run --projects=service`
 

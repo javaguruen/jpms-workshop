@@ -46,12 +46,12 @@ public class StudentJdbcRepository {
 	}
 
 	public int insert(Student student) {
-		return jdbcTemplate.update("insert into student (id, name, passport_number) " + "values(?,  ?, ?)",
+		return jdbcTemplate.update("insert into student (id, name, student_number) " + "values(?,  ?, ?)",
 				new Object[] { student.getId(), student.getName(), student.getStudentNumber() });
 	}
 
 	public int update(Student student) {
-		return jdbcTemplate.update("update student " + " set name = ?, passport_number = ? " + " where id = ?",
+		return jdbcTemplate.update("update student " + " set name = ?, student_number = ? " + " where id = ?",
 				new Object[] { student.getName(), student.getStudentNumber(), student.getId() });
 	}
 
