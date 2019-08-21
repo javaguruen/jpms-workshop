@@ -35,7 +35,7 @@ typically supported only in later versions of the plugins.
 
 Add the following propertis in the parent pom.
 ```
-  <maven.compiler.plugin.version>3.8.!</maven.compiler.plugin.version>
+  <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
   <maven.surfire.plugin.version>2.22.1</maven.surfire.plugin.version>
 ```
 
