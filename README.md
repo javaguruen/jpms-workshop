@@ -59,6 +59,7 @@ of the version number.
 
 In the `plugins` section (not `pluginManagement`) in the parent `pom.xml` file,
 jar plugin. 
+
 ```
     <build>
         <plugins>
@@ -89,6 +90,7 @@ jar files (in the target folder in the modules) and verify that the property
  
 # Modularize the application
 To modularize a maven module, we just add a module descriptor file `module-info.java` in the `src/main/java` folder for each module.
+
 ```
 module com.jpmsworkshop.students.<modulename> {
 
@@ -97,6 +99,7 @@ module com.jpmsworkshop.students.<modulename> {
 Let the modulenames be `api` and `service`.
 
 Modern IDEs and the compiler will change behaviour when this file is found, and you will at once get lots of compiler errors like: 
+
 ```
 Error:(3, 12) java: package java.sql is not visible
   (package java.sql is declared in module java.sql, but module com.jpmsworkshop.students.service does not read it)
@@ -117,6 +120,7 @@ place the cursor on a "red" import statement and `alt-enter` to add requires to 
 
 # Package exists in several modules
 You will probably see compilation errors like:
+
 ```
 Error:(1, 1) java: package exists in another module: com.jpmsworkshop.students.api
 Error:java: module spring.boot.autoconfigure reads package springfox.documentation.schema from both springfox.schema and springfox.core
@@ -132,6 +136,7 @@ if the IDE does not do it for you.
 ## Problems with 3rd party libraries (e.g. SpringFox)
 For 3rd party libraries it's not easy to fix problems with same package in several modules. Let's look inside two
 jar files from springfox:
+
 ```
 springfox-core-2.9.2.jar:
     springfox.documentation.schema.Entry
@@ -170,7 +175,8 @@ To resolve the problem, you have two options:
 When migrating an application to the module system, it's easier to open
 the whole package to reflection. Note that this will not make the packages
 available compiletime. 
-```$xslt
+
+```
 open module com.jpmsworkshop.students.service{
     ...
 }
@@ -180,7 +186,7 @@ open module com.jpmsworkshop.students.service{
 If you know which packages that spring needs access to, you can open only them.
 In our small, simple application we can open the `com.jpmsworkshop.students` package. 
 
-```$xslt
+```
 module com.jpmsworkshop.students.service{
     opens com.jpmsworkshop.students;
     ...
