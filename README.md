@@ -187,4 +187,4 @@ module com.jpmsworkshop.students.service{
 }
 ```
 
-The test should now run green.
+The test should now run green. If you run into an IllegalStateException due to the Spring configuration not being found, you will have to tell the `SprintBootTest` which application class you're testing. See https://github.com/spring-projects/spring-boot/issues/13581 (and related issues on Spring Framework and the JDK) for details.
