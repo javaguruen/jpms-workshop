@@ -1,4 +1,4 @@
-package com.jpmsworkshop.students.dao;
+package com.jpmsworkshop.students.service.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

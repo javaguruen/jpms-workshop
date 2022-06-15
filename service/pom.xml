@@ -15,6 +15,9 @@
   <name>spring-boot jpms workshop - service</name>
   <description>spring-boot jpms workshop - service</description>
 
+  <properties>
+    <module.name>com.jpmsworkshop.students.api.service</module.name>
+  </properties>
 
   <dependencies>
     <dependency>

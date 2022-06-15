@@ -1,4 +1,4 @@
-package com.jpmsworkshop.students.dao;
+package com.jpmsworkshop.students.service.dao;
 
 public class Student {
 	private Long id;

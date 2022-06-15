@@ -7,7 +7,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest
+//@SpringBootTest(classes = )
 public class SpringBootJpmsApplicationTests {
 
 	@Test

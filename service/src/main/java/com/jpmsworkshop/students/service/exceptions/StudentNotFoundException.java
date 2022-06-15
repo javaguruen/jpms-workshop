@@ -1,4 +1,4 @@
-package com.jpmsworkshop.students.exceptions;
+package com.jpmsworkshop.students.service.exceptions;
 
 public class StudentNotFoundException extends RuntimeException {
 

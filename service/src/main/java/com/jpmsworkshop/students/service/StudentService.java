@@ -3,7 +3,7 @@ package com.jpmsworkshop.students.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.jpmsworkshop.students.dao.Student;
+import com.jpmsworkshop.students.service.dao.Student;
 
 public interface StudentService {
 

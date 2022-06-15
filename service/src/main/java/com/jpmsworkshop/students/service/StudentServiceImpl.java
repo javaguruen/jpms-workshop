@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jpmsworkshop.students.dao.Student;
-import com.jpmsworkshop.students.dao.StudentJdbcRepository;
+import com.jpmsworkshop.students.service.dao.Student;
+import com.jpmsworkshop.students.service.dao.StudentJdbcRepository;
 
 @Service
 public class StudentServiceImpl implements StudentService{
