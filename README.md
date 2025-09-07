@@ -162,7 +162,7 @@ For the purpose of this workshop, just remove everything springfox related
 
 # Running the application 
 Run the application `mvn spring-boot:run --projects=service` or start it from the IDE.
-It runs fine, but without swagger-ui, you have to use the brower, or other tools
+It runs fine, but without swagger-ui, you have to use the browser, or other tools
 like curl or Postman to test the API. Open a browser and type `http://localhost:8080/students`.
 You should see the Json representing two student.
 
@@ -193,4 +193,6 @@ module com.jpmsworkshop.students.service{
 }
 ```
 
-The test should now run green. If you run into an IllegalStateException due to the Spring configuration not being found, you will have to tell the `SprintBootTest` which application class you're testing. See https://github.com/spring-projects/spring-boot/issues/13581 (and related issues on Spring Framework and the JDK) for details.
+The test should now run green. If you run into an IllegalStateException due to the Spring configuration not being found, 
+you will have to tell the `SprintBootTest` which application class you're testing. 
+See https://github.com/spring-projects/spring-boot/issues/13581 (and related issues on Spring Framework and the JDK) for details.

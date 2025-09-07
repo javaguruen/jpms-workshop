@@ -92,6 +92,29 @@
     </pluginManagement>
     <plugins>
       <plugin>
+        <artifactId>maven-jlink-plugin</artifactId>
+        <version>3.1.0</version>
+        <extensions>true</extensions>
+        <configuration>
+          <dependencysets>
+            <!-- add project dependencies to modulepath -->
+            <dependencyset>
+              <!-- add project output (module) to modulepath -->
+              <includeoutput>true</includeoutput>
+              <!-- exclude automatic modules -->
+              <excludeautomatic>true</excludeautomatic>
+            </dependencyset>
+          </dependencysets>
+          <!--addModules>
+            <addModule>com.jpmsworkshop.students.api</addModule>
+            <addModule>com.jpmsworkshop.students.service</addModule>
+          </addModules-->
+          <modulePaths>
+            <modulePath>/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home/jmods</modulePath>
+          </modulePaths>
+        </configuration>
+      </plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
         <configuration>

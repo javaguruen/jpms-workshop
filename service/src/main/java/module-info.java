@@ -10,4 +10,5 @@ module com.jpmsworkshop.students.service {
     requires spring.webmvc;
     requires com.jpmsworkshop.students.api;
 
+    exports com.jpmsworkshop.students.service;
 }
